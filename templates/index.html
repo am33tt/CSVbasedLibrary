@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Table</title>
+    <!-- Add Bootstrap CSS (you should include Bootstrap CSS in your project) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="display-4">My Books</h1>
+        </div>
+    </div>
+  </div>  
+    <div class="container mt-4">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    {% for header in books[0] %}
+                    <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books[1:] %}
+                <tr>
+                    {% for value in book %}
+                    <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <hr width="75%">
+    <div style="text-align: center;">
+      <a style="display: block; margin: 0 auto;" href="{{url_for('add')}}">Add a New Book</a>
+    </div>
+    <hr>
+    <div style="text-align: center;">
+      <a style="display: block; margin: 0 auto;" href="{{url_for('delete_data')}}">Reset the Table</a>
+    </div>
+
+
+    <!-- Add Bootstrap JS (optional, only if needed) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
